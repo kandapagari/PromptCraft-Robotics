@@ -1,6 +1,4 @@
 import airsim
-import math
-import numpy as np
 
 objects_dict = {
     "turbine1": "BP_Wind_Turbines_C_1",
@@ -15,6 +13,7 @@ objects_dict = {
 
 
 class AirSimWrapper:
+
     def __init__(self):
         self.client = airsim.MultirotorClient()
         self.client.confirmConnection()
@@ -33,18 +32,24 @@ class AirSimWrapper:
 
     def fly_to(self, point):
         if point[2] > 0:
-            self.client.moveToPositionAsync(point[0], point[1], -point[2], 5).join()
+            self.client.moveToPositionAsync(point[0], point[1], -point[2],
+                                            5).join()
         else:
-            self.client.moveToPositionAsync(point[0], point[1], point[2], 5).join()
+            self.client.moveToPositionAsync(point[0], point[1], point[2],
+                                            5).join()
 
     def fly_path(self, points):
         airsim_points = []
         for point in points:
             if point[2] > 0:
-                airsim_points.append(airsim.Vector3r(point[0], point[1], -point[2]))
+                airsim_points.append(
+                    airsim.Vector3r(point[0], point[1], -point[2]))
             else:
-                airsim_points.append(airsim.Vector3r(point[0], point[1], point[2]))
-        self.client.moveOnPathAsync(airsim_points, 5, 120, airsim.DrivetrainType.ForwardOnly, airsim.YawMode(False, 0), 20, 1).join()
+                airsim_points.append(
+                    airsim.Vector3r(point[0], point[1], point[2]))
+        self.client.moveOnPathAsync(airsim_points, 5, 120,
+                                    airsim.DrivetrainType.ForwardOnly,
+                                    airsim.YawMode(False, 0), 20, 1).join()
 
     def set_yaw(self, yaw):
         self.client.rotateToYawAsync(yaw, 5).join()
