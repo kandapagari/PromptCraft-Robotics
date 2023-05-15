@@ -11,6 +11,14 @@ objects_dict = {
     "tower3": "SM_Electric_trellis_8",
 }
 
+objects_dict = {
+    "orangeball": "OrangeBall",
+    "cube1": "TemplateCube_Rounded_234",
+    "cube2": "TemplateCube_Rounded_65",
+    "cone": "Cone_5",
+    "Cylinder": "Cylinder7",
+}
+
 
 class AirSimWrapper:
 

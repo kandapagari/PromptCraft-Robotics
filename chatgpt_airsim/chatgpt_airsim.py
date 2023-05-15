@@ -7,10 +7,15 @@ from airsim_wrapper import AirSimWrapper
 from dotenv import find_dotenv, load_dotenv
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--prompt", type=str, default="prompts/airsim_basic.txt")
-parser.add_argument("--sysprompt",
-                    type=str,
-                    default="system_prompts/airsim_basic.txt")
+parser.add_argument(
+    "--prompt",
+    type=str,
+    default="microsoft/promptCraft/chatgpt_airsim/prompts/airsim_basic.txt")
+parser.add_argument(
+    "--sysprompt",
+    type=str,
+    default=  # NOQA
+    "microsoft/promptCraft/chatgpt_airsim/system_prompts/airsim_basic.txt")
 args = parser.parse_args()
 
 _ = load_dotenv(find_dotenv())
@@ -20,6 +25,8 @@ openai.api_key = os.environ["OPENAI_API_KEY"]
 
 with open(args.sysprompt, "r") as f:
     sysprompt = f.read()
+
+# sysprompt = ''
 
 chat_history = [{
     "role": "system",
