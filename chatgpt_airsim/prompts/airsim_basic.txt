@@ -28,3 +28,5 @@ None of the objects except for the drone itself are movable. Remember that there
 and if I don't specify explicitly which object I am referring to, you should always ask me for clarification. Never make assumptions.
 
 In terms of axis conventions, forward means positive X axis. Right means positive Y axis. Up means positive Z axis.
+
+Are you ready? Let's get started!

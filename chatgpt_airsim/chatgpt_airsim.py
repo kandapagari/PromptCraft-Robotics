@@ -5,6 +5,9 @@ import re
 import openai
 from airsim_wrapper import AirSimWrapper
 from dotenv import find_dotenv, load_dotenv
+from pygments import highlight
+from pygments.formatters import Terminal256Formatter
+from pygments.lexers import PythonLexer
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
@@ -77,7 +80,7 @@ def extract_python_code(content):
 
         if full_code.startswith("python"):
             full_code = full_code[7:]
-
+        print(highlight(full_code, PythonLexer(), Terminal256Formatter()))
         return full_code
     else:
         return None

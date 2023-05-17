@@ -16,7 +16,7 @@ objects_dict = {
     "cube1": "TemplateCube_Rounded_234",
     "cube2": "TemplateCube_Rounded_65",
     "cone": "Cone_5",
-    "Cylinder": "Cylinder7",
+    "cylinder": "Cylinder7",
 }
 
 
